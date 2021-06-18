@@ -3,12 +3,20 @@ from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 import os
 PORT = int(os.environ.get('PORT', 5000))
 
+import telebot
+from telebot import types
+import requests
+
+
 # Enable logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                     level=logging.INFO)
 
 logger = logging.getLogger(__name__)
 TOKEN = '1807060008:AAEPtt01PD_6iAZyP5OD8FZwkdM2gqlFzFM'
+bot = telebot.TeleBot(TOKEN)
+
+
 
 # Define a few command handlers. These usually take the two arguments update and
 # context. Error handlers also receive the raised TelegramError object in error.
@@ -61,3 +69,7 @@ def main():
 
 if __name__ == '__main__':
     main()
+    
+  @bot.message_handler(commands=['start', 'help'])
+def send_welcome(message):
+    bot.reply_to(message, f'Я бот. Приятно познакомиться, {message.from_user.first_name}')  
