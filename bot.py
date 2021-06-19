@@ -70,6 +70,6 @@ def main():
 if __name__ == '__main__':
     main()
     
-  @bot.message_handler(commands=['start', 'help'])
+@bot.message_handler(commands=['start', 'help'])
 def send_welcome(message):
     bot.reply_to(message, f'Я бот. Приятно познакомиться, {message.from_user.first_name}')  
