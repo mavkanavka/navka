@@ -4,7 +4,7 @@
 # In[ ]:
 
 
-pip install pytelegrambotapi
+#pip install pytelegrambotapi
 
 
 # In[ ]:
